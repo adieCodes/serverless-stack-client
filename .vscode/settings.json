@@ -1,3 +1,15 @@
 {
-    "typescript.tsdk": "node_modules/typescript/lib"
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "cSpell.ignoreWords": [
+        "ap",
+        "eets",
+        "gkcpco",
+        "gq",
+        "mi",
+        "n",
+        "q",
+        "r",
+        "s",
+        "vjni"
+    ]
 }

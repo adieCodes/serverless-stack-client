@@ -1,4 +1,7 @@
 const config = {
+  MAX_ATTACHMENT_SIZE: 5000000,
+  STRIPE_KEY:
+    "pk_test_51Hv3IgJQ3vM9SAofLyUMdplpyPQfuE3Lti7o4IpVIXy2pLLGWUwDue02cQ774aaTwRGgAyHwgpdejFMJR1JlXBeY00x1ihew52",
   s3: {
     REGION: "us-east-1",
     BUCKET: "notes-app-upload-adiecodes",

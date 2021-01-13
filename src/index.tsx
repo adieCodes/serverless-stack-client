@@ -1,11 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter as Router } from "react-router-dom";
-import { Amplify } from "aws-amplify";
-import App from "./App";
-import config from "./config";
-import "./index.css";
-import reportWebVitals from "./reportWebVitals";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Amplify } from 'aws-amplify';
+import App from './App';
+import config from './config';
+import './index.css';
+import reportWebVitals from './reportWebVitals';
+import { initSentry } from './libs/errorLib';
+
+initSentry();
 
 Amplify.configure({
   Auth: {
@@ -23,7 +26,7 @@ Amplify.configure({
   API: {
     endpoints: [
       {
-        name: "notes",
+        name: 'notes',
         endpoint: config.apiGateway.URL,
         region: config.apiGateway.REGION,
       },
@@ -37,7 +40,7 @@ ReactDOM.render(
       <App />
     </Router>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

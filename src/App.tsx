@@ -1,13 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Auth } from "aws-amplify";
-import { useHistory } from "react-router-dom";
-import { AppContext } from "./libs/contextLib";
-import Navbar from "react-bootstrap/Navbar";
-import Nav from "react-bootstrap/Nav";
-import { LinkContainer } from "react-router-bootstrap";
-import Routes from "./Routes";
-import Loading from "./components/Loading";
-import "./App.css";
+import React, { useEffect, useState } from 'react';
+import { Auth } from 'aws-amplify';
+import { useHistory } from 'react-router-dom';
+import { AppContext } from './libs/contextLib';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import { LinkContainer } from 'react-router-bootstrap';
+import Routes from './Routes';
+import Loading from './components/Loading';
+import ErrorBoundary from './components/ErrorBoundary';
+import './App.css';
 
 function App() {
   const [isAuthenticating, setIsAuthenticating] = useState<boolean>(true);
@@ -23,7 +24,7 @@ function App() {
       await Auth.currentSession();
       userHasAuthenticated(true);
     } catch (e) {
-      if (e !== "No current user") {
+      if (e !== 'No current user') {
         alert(e);
       }
     }
@@ -36,7 +37,7 @@ function App() {
 
     userHasAuthenticated(false);
 
-    history.push("/login");
+    history.push('/login');
   }
 
   return !isAuthenticating ? (
@@ -70,9 +71,11 @@ function App() {
           </Nav>
         </Navbar.Collapse>
       </Navbar>
-      <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
-        <Routes />
-      </AppContext.Provider>
+      <ErrorBoundary>
+        <AppContext.Provider value={{ isAuthenticated, userHasAuthenticated }}>
+          <Routes />
+        </AppContext.Provider>
+      </ErrorBoundary>
     </div>
   ) : (
     <Loading />

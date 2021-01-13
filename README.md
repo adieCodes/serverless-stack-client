@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Notes client app
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) following the [serverless stack tutorial](https://serverless-stack.com/#table-of-contents)
 
 ## Available Scripts
 
@@ -46,9 +46,3 @@ This deploys to AWS by:
 1. Running the build command
 2. Uploading the static files to S3
 3. Invalidating the cloudfront distributions
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
